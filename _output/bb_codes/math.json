@@ -1,0 +1,20 @@
+{
+    "bb_code_mode": "callback",
+    "has_option": "no",
+    "replace_html": "",
+    "replace_html_email": "",
+    "replace_text": "",
+    "callback_class": "Inforge\\BbMath\\BbCode\\Math",
+    "callback_method": "renderMathTag",
+    "option_regex": "",
+    "trim_lines_after": 1,
+    "plain_children": true,
+    "disable_smilies": false,
+    "disable_nl2br": false,
+    "disable_autolink": true,
+    "allow_empty": false,
+    "allow_signature": false,
+    "editor_icon_type": "fa",
+    "editor_icon_value": "fas fa-sigma",
+    "active": true
+}

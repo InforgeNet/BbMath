@@ -1,0 +1,22 @@
+{
+	"legacy_addon_id": "",
+	"title": "[Inforge] BbMath",
+	"description": "Add BBCode to support equations and inline math.",
+	"version_id": 1000070,
+	"version_string": "1.0.0",
+	"dev": "Inforge",
+	"dev_url": "https://www.inforge.net",
+	"faq_url": "https://github.com/InforgeNet/BbMath/wiki/Frequently-Asked-Questions",
+	"support_url": "https://github.com/InforgeNet/BbMath/issues",
+	"extra_urls": {
+		"Forum": "https://www.inforge.net/forum",
+		"GitHub": "https://github.com/InforgeNet/BbMath"
+	},
+	"require": {
+		"XF": [
+			2020010,
+			"XenForo 2.2.0+"
+		]
+	},
+	"icon": "far fa-function"
+}

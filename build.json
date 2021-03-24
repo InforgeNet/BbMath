@@ -1,0 +1,8 @@
+{
+	"additional_files": [
+		"js/inforge/bbmath"
+	],
+	"minify": [
+		"js/inforge/bbmath/mathjax-loader.js"
+	]
+}

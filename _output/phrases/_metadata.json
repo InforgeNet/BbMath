@@ -1,0 +1,50 @@
+{
+    "custom_bb_code_desc.imath.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "25e1a125b615656d98e1e9a0d86aed23"
+    },
+    "custom_bb_code_desc.math.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "a57476785e78e7548ee37d0dac689b89"
+    },
+    "custom_bb_code_example.imath.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "8c7879343f05c33e441c866208774770"
+    },
+    "custom_bb_code_example.math.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "29cdf8f73f4470841a427c6c1567d148"
+    },
+    "custom_bb_code_output.imath.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "custom_bb_code_output.math.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "d41d8cd98f00b204e9800998ecf8427e"
+    },
+    "custom_bb_code_title.imath.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "f6b210b4351f3ce4b04695f8b3b122ce"
+    },
+    "custom_bb_code_title.math.txt": {
+        "global_cache": false,
+        "version_id": 1000070,
+        "version_string": "1.0.0",
+        "hash": "aa8a105043d90127c760e67170853c2c"
+    }
+}

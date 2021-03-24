@@ -1,0 +1,6 @@
+[MATH]
+\begin{cases}
+x'(t) = \sin x(t), & t\in\mathbb{R}\\
+x(0)=x_0
+\end{cases}
+[/MATH]
