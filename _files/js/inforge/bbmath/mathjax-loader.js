@@ -25,21 +25,24 @@ window.MathJax = {
 	document.head.appendChild(script);
 })();
 
-function retypesetMathjax(post)
-{
-	$(post).off('DOMSubtreeModified', postModifiedHandler);
-	window.MathJax.typesetPromise().then(() => {
-		$(post).on('DOMSubtreeModified', postModifiedHandler);
-	}).catch((err) => console.log(err.message));
-}
+var retypesetDisabled = false;
 
-function postModifiedHandler()
+function retypesetMathjax()
 {
-	retypesetMathjax(this);
+	$(this).off('DOMSubtreeModified', retypesetMathjax);
+	if (retypesetDisabled) {
+		setTimeout(retypesetMathjax, 500);
+		return;
+	}
+	retypesetDisabled = true;
+	$(this).on('DOMSubtreeModified', retypesetMathjax);
+	window.MathJax.typesetPromise().then(() => {
+		retypesetDisabled = false;
+	}).catch((err) => console.log(err.message));
 }
 
 $(window).on('load', function() {
 	$('article.message, article.resourceBody-main, blockquote.message-body').each(function() {
-		$(this).on('DOMSubtreeModified', postModifiedHandler);
+		$(this).on('DOMSubtreeModified', retypesetMathjax);
 	});
 });
