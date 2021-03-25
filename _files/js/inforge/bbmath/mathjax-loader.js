@@ -24,3 +24,22 @@ window.MathJax = {
 	script.async = true;
 	document.head.appendChild(script);
 })();
+
+function retypesetMathjax(post)
+{
+	$(post).off('DOMSubtreeModified', postModifiedHandler);
+	window.MathJax.typesetPromise().then(() => {
+		$(post).on('DOMSubtreeModified', postModifiedHandler);
+	}).catch((err) => console.log(err.message));
+}
+
+function postModifiedHandler()
+{
+	retypesetMathjax(this);
+}
+
+$(window).on('load', function() {
+	$('article.message, article.resourceBody-main, blockquote.message-body').each(function() {
+		$(this).on('DOMSubtreeModified', postModifiedHandler);
+	});
+});
