@@ -16,6 +16,8 @@ class Math
 	public static function renderMathTag($tagChildren, $tagOption, $tag,
 		array $options, \XF\BbCode\Renderer\AbstractRenderer $renderer)
 	{
+		if (count($tagChildren) == 0)
+			return '';
 		self::loadMathjax($renderer);
 		return '$$\[' . $tagChildren[0] . '$$\]';
 	}
@@ -23,6 +25,8 @@ class Math
 	public static function renderInlineMathTag($tagChildren, $tagOption, $tag,
 		array $options, \XF\BbCode\Renderer\AbstractRenderer $renderer)
 	{
+		if (count($tagChildren) == 0)
+			return '';
 		self::loadMathjax($renderer);
 		return '$$\(' . $tagChildren[0] . '$$\)';
 	}
