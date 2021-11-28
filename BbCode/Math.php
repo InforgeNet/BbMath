@@ -16,18 +16,17 @@ class Math
 	public static function renderMathTag($tagChildren, $tagOption, $tag,
 		array $options, \XF\BbCode\Renderer\AbstractRenderer $renderer)
 	{
-		if (count($tagChildren) == 0)
+		$pre = '$$\[';
+		$post = '$$\]';
+		if (strpos($tag['tag'], 'imath') === 0) {
+			$pre = '$$\(';
+			$post = '$$\)';
+		}
+		if (count($tagChildren) == 0
+			|| !is_string($tagChildren[0])
+			|| strlen($tagChildren[0]) == 0)
 			return '';
 		self::loadMathjax($renderer);
-		return '$$\[' . $tagChildren[0] . '$$\]';
-	}
-
-	public static function renderInlineMathTag($tagChildren, $tagOption, $tag,
-		array $options, \XF\BbCode\Renderer\AbstractRenderer $renderer)
-	{
-		if (count($tagChildren) == 0)
-			return '';
-		self::loadMathjax($renderer);
-		return '$$\(' . $tagChildren[0] . '$$\)';
+		return $pre . $tagChildren[0] . $post;
 	}
 }

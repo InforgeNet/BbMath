@@ -1,48 +1,54 @@
-window.MathJax = {
-	loader: {
-		load: ['ui/safe']
-	},
-	options: {
-		enableMenu: false
-	},
-	tex: {
-		inlineMath: [['$$\\(', '$$\\)']],
-		displayMath: [['$$\\[', '$$\\]']],
-		processEscapes: false,
-		processRefs: true,
-		processEnvironments: false,
-		tags: 'ams'
-	},
-	svg: {
-		fontCache: 'global'
-	}
-};
+var BbMath = window.BbMath || {};
 
-(function() {
-	var script = document.createElement('script');
-	script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js';
-	script.async = true;
-	document.head.appendChild(script);
-})();
-
-var retypesetDisabled = false;
-
-function retypesetMathjax()
+!function($, window, document, _undefined)
 {
-	$(this).off('DOMSubtreeModified', retypesetMathjax);
-	if (retypesetDisabled) {
-		setTimeout(retypesetMathjax, 500);
-		return;
-	}
-	retypesetDisabled = true;
-	$(this).on('DOMSubtreeModified', retypesetMathjax);
-	window.MathJax.typesetPromise().then(() => {
-		retypesetDisabled = false;
-	}).catch((err) => console.log(err.message));
-}
+	"use strict";
 
-$(window).on('load', function() {
-	$('article.message, article.resourceBody-main, blockquote.message-body').each(function() {
-		$(this).on('DOMSubtreeModified', retypesetMathjax);
+	BbMath.MathJax = XF.create({
+		options: {
+			mathjax: {
+				loader: {
+					load: ['ui/safe'],
+				},
+				enableMenu: false,
+				tex: {
+					inlineMath: [['$$\\(', '$$\\)']],
+					displayMath: [['$$\\[', '$$\\]']],
+					processEscapes: false,
+					processRefs: true,
+					processEnvironments: false,
+					tags: 'ams',
+				},
+				svg: {
+					fontCache: 'global',
+				},
+			},
+			mathjaxUrl: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js'
+		},
+
+		__construct: function(options) {
+			window.MathJax = this.options.mathjax;
+		},
+
+		load: function() {
+			XF.loadScript(this.options.mathjaxUrl, XF.proxy(this, 'loadSuccess'));
+		},
+
+		loadSuccess: function() {
+			$(document).on('xf:layout', XF.proxy(this, 'retypeset'));
+		},
+
+		retypeset: function() {
+			MathJax.startup.promise = MathJax.startup.promise
+				.then(() => MathJax.typesetPromise())
+				.catch((err) => console.log('MathJax typeset failed: ' + err.message));
+			return MathJax.startup.promise;
+		},
 	});
-});
+
+	$(document).on('xf:page-load-complete', function() {
+		var mathjax = new BbMath.MathJax();
+		mathjax.load();
+	});
+}
+(jQuery, window, document);

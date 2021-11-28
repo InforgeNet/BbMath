@@ -5,7 +5,7 @@
 1. You need [XenForo 2.x](https://xenforo.com/). You can setup a Scotch Box
    environment as described in the [Xenforo 2.x Development
    Documentation](https://xenforo.com/xf2-docs/dev/scotchbox/)
-2. Fork TwitchPiper
+2. Fork BbMath
 3. Move in the `src/addon/` folder of your development enviroment and `mkdir Inforge && cd Inforge`
 4. `git clone https://github.com/<your-username>/BbMath && cd BbMath`
 5. `git remote add upstream https://github.com/InforgeNet/BbMath`

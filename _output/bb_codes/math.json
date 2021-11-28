@@ -9,7 +9,7 @@
     "option_regex": "",
     "trim_lines_after": 1,
     "plain_children": true,
-    "disable_smilies": false,
+    "disable_smilies": true,
     "disable_nl2br": false,
     "disable_autolink": true,
     "allow_empty": false,
